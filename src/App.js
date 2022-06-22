@@ -1,27 +1,26 @@
 import "./App.css";
 import axios from "axios";
-import Properties from "./components/Properties";
+import Children from "./components/Children";
 import { useEffect, useState } from "react";
 import Hero from "./components/Hero";
 
-
-const API_URL0 = "http://localhost:3000/properties";
+const API_URL = "http://localhost:3000/children";
 
 function getAPIData() {
-  return axios.get(API_URL0).then((response) => response.data);
+  return axios.get(API_URL).then((response) => response.data);
 }
 
 function App() {
 
-  const [properties, setProperties] = useState([]);
+  const [children, setChildren] = useState([]);
 
   useEffect(() => {
 
     let mounted = true;
     getAPIData().then((items) => {
       if (mounted) {
-        setProperties(items);
-        localStorage.setItem("properties", JSON.stringify(items));
+        setChildren(items);
+        localStorage.setItem("children", JSON.stringify(items));
       }
     });
     return () => (mounted = false);
@@ -31,7 +30,7 @@ function App() {
     <div className="App container-fluid">
       {/* <Navbar /> */}
       <Hero />
-      <Properties properties={properties} />
+      <Children children={children} />
       {/* <Footer /> */}
     </div>
   );
