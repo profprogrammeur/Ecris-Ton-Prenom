@@ -93,7 +93,7 @@ const Profil = () => {
     }
     console.log("putAPI : " + token)
     
-    return axios.patch("http://localhost:3000/member-update", data,config).then((response) => console.log('user updated' + response));
+    return axios.patch(`${API_URL}member-update`, data,config).then((response) => console.log('user updated' + response));
   }
 
 
