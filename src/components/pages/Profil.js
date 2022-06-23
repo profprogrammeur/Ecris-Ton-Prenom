@@ -23,6 +23,7 @@ const id = Cookies.get('id')
 const Profil = () => {
   const [kid_name, setKid_name] = useState(Cookies.get('kid_name'));
   const [kid_photo, setKid_photo] = useState(Cookies.get('kid_photo'));
+  
 
   
                           const jwt = useAtomValue(authorizationAtom);
@@ -76,10 +77,13 @@ const Profil = () => {
 
   function putAPIData() {
     const token = Cookies.get('token')
+
+    Cookies.set('kid_name', kid_name)
+    Cookies.set('kid_photo', kid_photo)
     const data = {
       // id: 1,
-      kid_name: kid_name,
-      kid_photo: kid_photo
+      child_name: kid_name,
+      child_image: kid_photo
       // token: token
     }
     const config = {
@@ -141,7 +145,7 @@ const Profil = () => {
     <div className={Style.mainregister}>
       <h1>Profil</h1>
       <div >
-        email : <input type="text" placeholder={email} id="email" onChange={(e) => setEmailapp(e.target.value)}></input>
+        {/* email : <input type="text" placeholder={email} id="email" onChange={(e) => setEmailapp(e.target.value)}></input> */}
         prenom enfant : <input type="text" placeholder={kid_name} id="kid_name" onChange={(e) => setKid_name(e.target.value)}></input>
         photo enfant : <input type="text" placeholder={kid_photo} id="kid_photo" onChange={(e) => setKid_photo(e.target.value)}></input>
   {/* <input type="password" placeholder='mot de passe' id="password" onChange={(e) => setPasswordapp(e.target.value)}></input> */}
@@ -149,7 +153,7 @@ const Profil = () => {
 
       </div>
       <div className={Style.imgregister}>
-        <img src={kid_photo} className="rounded-5"></img>
+        <img src={kid_photo} className="rounded-5" alt="Photo de l'enfant"></img>
       </div>
     </div>
 

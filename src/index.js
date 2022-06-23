@@ -20,8 +20,7 @@ root.render(
       <Navbar />
         <Routes>
           <Route path="/" element={<App />} />
-          <Route path="/child/" element={<GamePage />} />
-          <Route path="/child/:id" element={<GamePage />} />
+          <Route path="/game" element={<GamePage />} />
           <Route path="/contact" element={<Contact />} /> 
           <Route path="/register" element={<Authentification />} /> 
           <Route path="/login" element={<Login />} /> 

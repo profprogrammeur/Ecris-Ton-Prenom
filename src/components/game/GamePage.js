@@ -1,21 +1,28 @@
 import React from "react";
 import { useParams } from 'react-router';
 import { useState } from "react";
+import Cookies from 'js-cookie';
+
+
 
 
   const GamePage = () => {
 
-  const { id } = useParams();
-  const children = JSON.parse(localStorage.getItem('children'))
-  let child = children.find(x => x.id === parseInt(id))
-  console.log(child.child_name)
+  // const { id } = useParams();
+  // const children = JSON.parse(localStorage.getItem('children'))
+  // let child = children.find(x => x.id === parseInt(id))
+  // console.log(child.child_name)
 
 
 
+ 
+    let name = Cookies.get('kid_name')
+    let selfi = Cookies.get('kid_photo')
+    console.log(Cookies.get('kid_photo'))
+    console.log(Cookies.get('kid_name'))
 
-    let name = child.child_name
-    let selfi = child.child_image
-    console.log (selfi)
+    // let name = "Boby"
+    // let selfi = "https://unsplash.com/photos/mou0S7ViElQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU1OTgzMDE3&force=true&w=640"
 
     const { level, updateLevel } = useState("0")
 

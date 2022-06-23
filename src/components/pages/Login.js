@@ -60,10 +60,10 @@ const Login = () => {
 
             Cookies.set('id', response.user.id);
             Cookies.set('email', response.user.email);
-            Cookies.set('kid_name', response.user.kid_name);
-            Cookies.set('kid_photo', response.user.kid_photo);
+            Cookies.set('kid_name', response.user.child_name);
+            Cookies.set('kid_photo', response.user.child_image);
             console.log("cookie : " + Cookies.get('kid_name'))
-            
+
             navigate('/')
           })
 

@@ -13,8 +13,14 @@ function Navbar() {
   const navigate = useNavigate()
 
   const logout = () => {
-    Cookies.set('id', "");
-    Cookies.set('email', "");
+
+    Cookies.remove('id')
+    Cookies.remove('email')
+    Cookies.remove('kid_name')
+    Cookies.remove('kid_photo')
+
+    console.log(Cookies.get())
+    
     fetch(API_URL + 'users/sign_out', {
       method: 'delete',
       headers: {

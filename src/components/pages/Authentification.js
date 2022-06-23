@@ -46,7 +46,7 @@ const Authentification = () => {
           body: JSON.stringify(data)
         })
           .then((response) => {
-            console.log("responseImmoAllAPI :" + [...response.headers.get('authorization')].join(''))
+            // console.log("responseImmoAllAPI :" + [...response.headers.get('authorization')].join(''))
             setAuthorizationapp([...response.headers.get('authorization')].join(''));
             Cookies.set('token', [...response.headers.get('authorization')].join(''))
 
@@ -57,6 +57,8 @@ const Authentification = () => {
           .then((response) => {
             setUserapp(response.user.id)
             Cookies.set('id', response.user.id);
+            Cookies.set('id', response.user.id);
+            Cookies.set('email', response.user.email);
             navigate('/')
           })
 
