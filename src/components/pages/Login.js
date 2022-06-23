@@ -52,7 +52,18 @@ const Login = () => {
 
           .then((response) => {
             setUserapp(response.user.id)
+
+            Cookies.set('id', "");
+            Cookies.set('email', "");
+            Cookies.set('kid_name', "");
+            Cookies.set('kid_photo', "");
+
             Cookies.set('id', response.user.id);
+            Cookies.set('email', response.user.email);
+            Cookies.set('kid_name', response.user.kid_name);
+            Cookies.set('kid_photo', response.user.kid_photo);
+            console.log("cookie : " + Cookies.get('kid_name'))
+            
             navigate('/')
           })
 

@@ -10,12 +10,13 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Login from "./components/pages/Login";
 import Profil from "./components/pages/Profil";
-
+import { Provider } from "jotai";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-
+  
     <BrowserRouter>
+ 
       <Navbar />
         <Routes>
           <Route path="/" element={<App />} />
@@ -27,6 +28,7 @@ root.render(
           <Route path="/profil" element={<Profil />} /> 
         </Routes>
       <Footer />
+
     </BrowserRouter>
- 
+
 );

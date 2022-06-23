@@ -87,7 +87,7 @@ import { useState } from "react";
       }
       else (i -= 1)
     }
-console.log(items)
+    console.log(items)
     // const colors = ["DarkMagenta"]
 
     // shuffle items array

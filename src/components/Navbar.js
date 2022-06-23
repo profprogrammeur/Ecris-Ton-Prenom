@@ -13,12 +13,14 @@ function Navbar() {
   const navigate = useNavigate()
 
   const logout = () => {
+    Cookies.set('id', "");
+    Cookies.set('email', "");
     fetch(API_URL + 'users/sign_out', {
       method: 'delete',
       headers: {
         'Authorization': authorizationapp,
         'Content-Type': 'application/json'
-      }
+      },
     })
       .then((response) => { return response.json() })
       .then((response) => {

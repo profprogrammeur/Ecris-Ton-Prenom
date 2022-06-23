@@ -36,11 +36,8 @@ const Authentification = () => {
       body: JSON.stringify(data)
     })
       .then((response) => { 
-     
-       
         return response.json() })
       .then((response) => {
-        
         fetch(API_URL + 'users/sign_in', {
           method: 'post',
           headers: {
