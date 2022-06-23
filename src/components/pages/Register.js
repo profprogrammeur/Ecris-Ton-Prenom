@@ -4,10 +4,10 @@ import { useAtom } from "jotai";
 import { userAtom, authorizationAtom } from "../../stores/auth";
 import { API_URL } from "../../stores/api_url";
 import Style from "./style.module.css";
-import kids_cube from "../../ressources/kids_cube.jpg";
+import kids_circle from "../../ressources/kids_circle.jpg";
 import Cookies from "js-cookie";
 
-const Login = () => {
+const Register = () => {
   const navigate = useNavigate();
   const [userapp, setUserapp] = useAtom(userAtom);
   const [emailapp, setEmailapp] = useState();
@@ -24,7 +24,7 @@ const Login = () => {
       },
     };
 
-    fetch(API_URL + "users/sign_in", {
+    fetch(API_URL + "users", {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -32,39 +32,41 @@ const Login = () => {
       body: JSON.stringify(data),
     })
       .then((response) => {
-        setAuthorizationapp(
-          [...response.headers.get("authorization")].join("")
-        );
-        Cookies.set(
-          "token",
-          [...response.headers.get("authorization")].join("")
-        );
-        console.log(
-          "responseImmoAllAPI :" + response.headers.get("authorization")
-        );
         return response.json();
       })
-
       .then((response) => {
-        setUserapp(response.user.id);
+        fetch(API_URL + "users/sign_in", {
+          method: "post",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => {
+            setAuthorizationapp(
+              [...response.headers.get("authorization")].join("")
+            );
+            Cookies.set(
+              "token",
+              [...response.headers.get("authorization")].join("")
+            );
 
-        Cookies.set("id", "");
-        Cookies.set("email", "");
-        Cookies.set("kid_name", "");
-        Cookies.set("kid_photo", "");
-        Cookies.set("id", response.user.id);
-        Cookies.set("email", response.user.email);
-        Cookies.set("kid_name", response.user.child_name);
-        Cookies.set("kid_photo", response.user.child_image);
-        console.log("cookie : " + Cookies.get("kid_name"));
+            return response.json();
+          })
 
-        navigate("/");
+          .then((response) => {
+            setUserapp(response.user.id);
+            Cookies.set("id", response.user.id);
+            Cookies.set("id", response.user.id);
+            Cookies.set("email", response.user.email);
+            navigate("/");
+          });
       });
   }
 
   return (
     <div className={Style.mainregister}>
-      <h1>Se connecter</h1>
+      <h1>S'inscrire</h1>
       <form onSubmit={FetchData}>
         <input
           type="text"
@@ -81,10 +83,10 @@ const Login = () => {
         <button type="submit">Envoyer</button>
       </form>
       <div className={Style.imgregister}>
-        <img src={kids_cube} className="rounded-5"></img>
+        <img src={kids_circle} className="rounded-5"></img>
       </div>
     </div>
   );
 };
 
-export default Login;
+export default Register;

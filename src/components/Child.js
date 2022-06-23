@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-
-function Child({ title, image_url}) {
+function Child({ title, image_url }) {
   return (
     <div className="card h-100 mx-auto" style={{ width: "18rem" }}>
       <img src={image_url} className="card-img-top img-fluid mt-2" alt="pic" />
@@ -12,8 +11,6 @@ function Child({ title, image_url}) {
           JOUER
         </Link>
       </div>
-
-      
     </div>
   );
 }
