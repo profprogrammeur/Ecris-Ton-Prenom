@@ -19,10 +19,10 @@ const id = Cookies.get('id')
 
 // const [kid_name, setKid_name] = useState(Cookies.get('kid_name'));
 
-const kid_photo = Cookies.get('kid_photo')
+// const kid_photo = Cookies.get('kid_photo')
 const Profil = () => {
   const [kid_name, setKid_name] = useState(Cookies.get('kid_name'));
-
+  const [kid_photo, setKid_photo] = useState(Cookies.get('kid_photo'));
 
   
                           const jwt = useAtomValue(authorizationAtom);
@@ -79,7 +79,7 @@ const Profil = () => {
     const data = {
       // id: 1,
       kid_name: kid_name,
-      kid_photo: "https://kultt.fr/wp-content/uploads/2022/04/TomSawyer-serie-gratuit-FranceTV-uai-900x506.jpg"
+      kid_photo: kid_photo
       // token: token
     }
     const config = {
@@ -143,7 +143,7 @@ const Profil = () => {
       <div >
         email : <input type="text" placeholder={email} id="email" onChange={(e) => setEmailapp(e.target.value)}></input>
         prenom enfant : <input type="text" placeholder={kid_name} id="kid_name" onChange={(e) => setKid_name(e.target.value)}></input>
-        photo enfant : <input type="text" placeholder={kid_photo} id="kid_photo" onChange={(e) => setEmailapp(e.target.value)}></input>
+        photo enfant : <input type="text" placeholder={kid_photo} id="kid_photo" onChange={(e) => setKid_photo(e.target.value)}></input>
   {/* <input type="password" placeholder='mot de passe' id="password" onChange={(e) => setPasswordapp(e.target.value)}></input> */}
         <button className="btn btn-success" type='submit' onClick={() => putAPIData()}>Envoyer</button>
 
