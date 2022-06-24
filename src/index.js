@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import GamePage from "./components/game/GamePage";
+import Win from "./components/game/Win";
 import Contact from "./components/pages/Contact";
 import Register from "./components/pages/Register";
 import Navbar from "./components/Navbar";
@@ -19,6 +20,7 @@ root.render(
     <Routes>
       <Route path="/" element={<App />} />
       <Route path="/game" element={<GamePage />} />
+      <Route path="/game/win" element={<Win />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/register" element={<Register />} />
       <Route path="/login" element={<Login />} />

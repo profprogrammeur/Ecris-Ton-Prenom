@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link,useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import { userAtom, authorizationAtom } from "../stores/auth";
 import { API_URL } from "../stores/api_url";
