@@ -15,8 +15,14 @@ function Navbar() {
     Cookies.remove("email");
     Cookies.remove("kid_name");
     Cookies.remove("kid_photo");
+    Cookies.set("kid_name", "Elsa")
+    // let avatar = require("./avatar.png");
+    // let kid_photo = Cookies.get("kid_photo");
+    // if (kid_photo !== undefined) {
+    //   avatar = kid_photo;
+    // } else { Cookies.set("kid_photo", avatar) }
 
-    console.log(Cookies.get());
+    // console.log(Cookies.get());
 
     fetch(API_URL + "users/sign_out", {
       method: "delete",

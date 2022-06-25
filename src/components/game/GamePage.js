@@ -6,81 +6,53 @@ import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
 import { Link, useNavigate,Redirect } from "react-router-dom";
 
-
   const GamePage = () => {
-
-  // const { id } = useParams();
-  // const children = JSON.parse(localStorage.getItem('children'))
-  // let child = children.find(x => x.id === parseInt(id))
-  // console.log(child.child_name)
-
-
+    let level = parseInt(Cookies.get("level"))
     const navigate = useNavigate()
- 
     let name = Cookies.get('kid_name').toLocaleUpperCase()
-    let selfi = Cookies.get('kid_photo')
-    console.log(Cookies.get('kid_photo'))
-    console.log(Cookies.get('kid_name'))
+    let selfi = Cookies.get('kid_photo') 
     let stars = []
+
     for (let i = 0; i < 5; i++) {
-      stars.push(<Star className="m-2 " style={{ color: "gold" }} />)
+      stars.push(<Star className="m-2 "  style={{ color: "gold"}} />)
     }
-
-    // let name = "Boby"
-    // let selfi = "https://unsplash.com/photos/mou0S7ViElQ/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU1OTgzMDE3&force=true&w=640"
-
-    const { level, updateLevel } = useState("0")
 
     const [score, setScore] = React.useState(0)
     // const [stars, setStars] = React.useState([])
-
+    console.log("init_level = " + level)
     const checkName = (i) => {
       console.log("check")
       if (i === 4) {
         if (score > 3) {
           setScore(prevScore => prevScore + 1); 
-          // playSound(require('./ding.mp3'))
-
-          // if (level < 9) { updateLevel(level + 1) } else (updateLevel(1))
-
-          // playSound(require('./bravo.mp3'))
-          setTimeout(() => {
-          
-            // navigation.navigate('IMAGE', {
-            //   itemId: name,
-            //   selfie: selfi,
-            // });
+          if (level < 9) { level += 1 } else (level = 1);   
+          setTimeout(() => { 
+            Cookies.set("level",level)
             console.log("Bravo")
+            console.log("level = "+ level)
             setScore(0)
-            navigate("/game/win") 
-          }, 500)
+            navigate("/game/win")
+          }
+          , 500)
         } else { setScore(prevScore => prevScore + 1)
-          
-          // playSound(require('./ding.mp3'))
          }
       }
       else {
         if (score > 0) { setScore(prevScore => prevScore - 1); 
-          // playSound(require('./error.mp3')) 
         }
         else { setScore(0); 
-        // playSound(require('./error.mp3')) 
       }
       }
     }
-    //colors
+
     let colors = ["mediumpurple", "magenta", "limegreen", "deepskyblue", "orange"]
     const shuffledArr = array => array.sort(() => 0.5 - Math.random());
     colors = shuffledArr(colors)
-    // const color1 = colors.pop()
     const color4 = colors[4]
-    console.log(colors)
-
 
     const items = [
       <button key={name + 4} onClick={() => checkName(4)} className="fw-bold" style={{ fontSize: 30, background: color4, borderRadius: 20, marginBottom: 6, padding: 10  }} color={'white'} > {name} </button>
     ]
-
 
     // create a random word with letter from name
     const randomizeName = (name) => {
@@ -104,12 +76,38 @@ import { Link, useNavigate,Redirect } from "react-router-dom";
       }
       else (i -= 1)
     }
-    console.log(items)
-    // const colors = ["DarkMagenta"]
 
     // shuffle items array
     const itemsShuffled = items.map(a => ({ sort: Math.random(), value: a })).sort((a, b) => a.sort - b.sort).map(a => a.value);
     
+    for (let i = 0 ;i<score; i++) {
+     stars.pop()
+      stars.unshift(<StarFill className="m-2 " style={{ color: "darkorange" }} />)
+    }
+
+  return(
+    <div className="container d-flex flex-column  align-items-center bg-light rounded" cursor="not-allowed">   
+      {/* <h5 className="m-3" >score : {score}</h5> */}
+      <p style={{ fontSize: 15 }}>niveau : {level}</p>
+      <div className="flex bg-light  m-3">
+        {stars}
+      </div>
+      <img src={selfi} style={{ marginLeft: 0, marginBottom: 6, width: 300, borderRadius: 50 }}/>
+      <p style={{fontSize: 15}}>prénom à trouver :</p>
+      <p>{name}</p>
+      <div className="container d-flex  justify-content-evenly m-5">
+      {itemsShuffled}
+      </div>
+    </div>
+   );
+};
+
+export default GamePage;
+
+
+
+
+
   // for (let i=0;i<(5-score);i++){
   //   stars.push(<Star className="m-2" />)
   // }
@@ -122,37 +120,3 @@ import { Link, useNavigate,Redirect } from "react-router-dom";
   //   )
   
   
-  
-    for (let i = 0 ;i<score; i++) {
-
-     stars.pop()
-      stars.unshift(<StarFill className="m-2 " style={{ color: "darkorange" }} />)
-  
-    }
-
-
-
-  return(
-    <div className="container d-flex flex-column  align-items-center bg-light rounded">
-     
-   
-  
-      {/* <h5 className="m-3" >score : {score}</h5> */}
-      <div className="flex bg-light  m-3">
-        {stars}
-      </div>
-      
-      <img src={selfi} style={{ marginLeft: 0, marginBottom: 6, width: 300, borderRadius: 50 }} />
-      <p>prénom à trouver : {name}</p>
-        
-
-      <div className="container d-flex  justify-content-evenly m-5">
-      {itemsShuffled}
-      </div>
-   
-     
-    </div>
-   );
-};
-
-export default GamePage;
