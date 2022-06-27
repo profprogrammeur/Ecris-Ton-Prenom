@@ -1,5 +1,5 @@
 import React from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
 import { userAtom, authorizationAtom } from "../stores/auth";
 import { API_URL } from "../stores/api_url";
@@ -7,7 +7,7 @@ import Cookies from "js-cookie";
 
 function Navbar() {
   const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
-  const [id, setId] = useAtom(userAtom);
+  //const [id, setId] = useAtom(userAtom);
   const navigate = useNavigate();
 
   const logout = () => {
@@ -15,7 +15,7 @@ function Navbar() {
     Cookies.remove("email");
     Cookies.remove("kid_name");
     Cookies.remove("kid_photo");
-    Cookies.set("kid_name", "Elsa")
+    //Cookies.set("kid_name", "Elsa")
     // let avatar = require("./avatar.png");
     // let kid_photo = Cookies.get("kid_photo");
     // if (kid_photo !== undefined) {
@@ -36,7 +36,7 @@ function Navbar() {
       })
       .then((response) => {
         setAuthorizationapp("");
-        setId("");
+        //setId("");
         Cookies.set("id", "");
         Cookies.set("token", "");
         navigate("/");

@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [userapp, setUserapp] = useAtom(userAtom);
+  // const [userapp, setUserapp] = useAtom(userAtom);
   const [emailapp, setEmailapp] = useState();
   const [passwordapp, setPasswordapp] = useState();
   const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
@@ -46,7 +46,7 @@ const Login = () => {
       })
 
       .then((response) => {
-        setUserapp(response.user.id);
+        // setUserapp(response.user.id);
 
         Cookies.set("id", "");
         Cookies.set("email", "");
