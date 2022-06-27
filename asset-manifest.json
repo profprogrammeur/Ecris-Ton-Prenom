@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/Ecris-Ton-Prenom/static/css/main.dafacbb6.css",
+    "main.js": "/Ecris-Ton-Prenom/static/js/main.698b8619.js",
+    "static/media/kid_transparent.png": "/Ecris-Ton-Prenom/static/media/kid_transparent.1182411bab0aab137cdb.png",
+    "static/media/kids_circle.jpg": "/Ecris-Ton-Prenom/static/media/kids_circle.e2b22558cb8094c244f6.jpg",
+    "static/media/kids_cube.jpg": "/Ecris-Ton-Prenom/static/media/kids_cube.38be69de807a4bbc1067.jpg",
+    "static/media/cat6.jpg": "/Ecris-Ton-Prenom/static/media/cat6.13ea3cc080ab23056e13.jpg",
+    "static/media/cat4.jpg": "/Ecris-Ton-Prenom/static/media/cat4.7fac04a6e00b5524d672.jpg",
+    "static/media/cat2.jpg": "/Ecris-Ton-Prenom/static/media/cat2.13f649237138307ea807.jpg",
+    "static/media/cat7.jpg": "/Ecris-Ton-Prenom/static/media/cat7.0ef5501788af58718cb8.jpg",
+    "static/media/cat5.jpg": "/Ecris-Ton-Prenom/static/media/cat5.4bf5ecebe3c45459033d.jpg",
+    "static/media/cat8.jpg": "/Ecris-Ton-Prenom/static/media/cat8.bd76d589d30b5351c3b3.jpg",
+    "static/media/cat9.jpg": "/Ecris-Ton-Prenom/static/media/cat9.9940dbd41ad31cade6d0.jpg",
+    "static/media/cat1.jpg": "/Ecris-Ton-Prenom/static/media/cat1.86b1460d47b197d96d6e.jpg",
+    "static/media/cat3.jpg": "/Ecris-Ton-Prenom/static/media/cat3.9bb14fd93f8e0287a8ae.jpg",
+    "static/media/avatar.png": "/Ecris-Ton-Prenom/static/media/avatar.02fe131da5108c260cf8.png",
+    "index.html": "/Ecris-Ton-Prenom/index.html",
+    "main.dafacbb6.css.map": "/Ecris-Ton-Prenom/static/css/main.dafacbb6.css.map",
+    "main.698b8619.js.map": "/Ecris-Ton-Prenom/static/js/main.698b8619.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.dafacbb6.css",
+    "static/js/main.698b8619.js"
+  ]
+}
