@@ -2,6 +2,7 @@ import "./App.css";
 import Child from "./components/Child";
 import Hero from "./components/Hero";
 import Cookies from "js-cookie";
+import background from "./kid_transparent.png";
 
 function App() {
   
@@ -23,7 +24,16 @@ function App() {
   return (
     <div className="App container-fluid">
       <Hero />
-      <Child title={kid_name} image_url={avatar} />
+      <div className="d-flex justify-content-center">
+        <img
+          src={background}
+          className="img-fluid mt-2"
+          alt="pic"
+          style={{ height: "450px" }}
+        />
+        <Child title={Cookies.get("kid_name")} image_url={avatar} />
+      </div>
+
     </div>
   );
 }
