@@ -11,12 +11,13 @@
 
 ## Pitch du projet
 
-Marketplace d'immobilier, spécialisé dans la poussière et la moisissure !
+Écris ton prénom : plateforme d'apprentissage pour jeunes enfants, pour apprendre à écrire son prénom !
 
 ## Liens Utiles
 
-[Pour visiter le site, c'est par ici !](https://immo-all-react.herokuapp.com/)<br />
-[Repo du backend](https://github.com/profprogrammeur/immoALL_api)
+[Pour visiter le site, c'est par ici !](https://etp-react.herokuapp.com/)<br />
+[Repo du backend](https://github.com/profprogrammeur/Ecris-Ton-Prenom-API.git)
+[Lien vers notre pré maquette Figma](https://www.figma.com/file/yaim7UYTo5KHDXaNzmhKiA/%C3%89cris-ton-pr%C3%A9nom?node-id=0%3A1)
 
 ## Installation
 
