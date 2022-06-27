@@ -18,7 +18,7 @@ root.render(
   <BrowserRouter>
     <Navbar />
     <Routes>
-      <Route path="/" element={<App />} />
+      <Route path="/Ecris-Ton-Prenom/" element={<App />} />
       <Route path="/game" element={<GamePage />} />
       <Route path="/game/win" element={<Win />} />
       <Route path="/contact" element={<Contact />} />
