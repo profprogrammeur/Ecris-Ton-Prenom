@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Ecris-Ton-Prenom/static/css/main.dafacbb6.css",
-    "main.js": "/Ecris-Ton-Prenom/static/js/main.698b8619.js",
+    "main.js": "/Ecris-Ton-Prenom/static/js/main.9b1b11db.js",
     "static/media/kid_transparent.png": "/Ecris-Ton-Prenom/static/media/kid_transparent.1182411bab0aab137cdb.png",
     "static/media/kids_circle.jpg": "/Ecris-Ton-Prenom/static/media/kids_circle.e2b22558cb8094c244f6.jpg",
     "static/media/kids_cube.jpg": "/Ecris-Ton-Prenom/static/media/kids_cube.38be69de807a4bbc1067.jpg",
@@ -17,10 +17,10 @@
     "static/media/avatar.png": "/Ecris-Ton-Prenom/static/media/avatar.02fe131da5108c260cf8.png",
     "index.html": "/Ecris-Ton-Prenom/index.html",
     "main.dafacbb6.css.map": "/Ecris-Ton-Prenom/static/css/main.dafacbb6.css.map",
-    "main.698b8619.js.map": "/Ecris-Ton-Prenom/static/js/main.698b8619.js.map"
+    "main.9b1b11db.js.map": "/Ecris-Ton-Prenom/static/js/main.9b1b11db.js.map"
   },
   "entrypoints": [
     "static/css/main.dafacbb6.css",
-    "static/js/main.698b8619.js"
+    "static/js/main.9b1b11db.js"
   ]
 }
