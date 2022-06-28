@@ -8,12 +8,30 @@ import Style from "./style.module.css";
 import Cookies from "js-cookie";
 import axios from "axios";
 
+
+import { childAtom } from "../../stores/store";
+
+
+
 //const email = Cookies.get("email");
 //const id = Cookies.get("id");
 const Profil = () => {
+  const kid_name=""
+  const kid_photo=""
+
+  const [state, setState] = useAtom(childAtom);
+  console.log(state)
+
   const navigate = useNavigate();
-  const [kid_name, setKid_name] = useState(Cookies.get("kid_name"));
-  const [kid_photo, setKid_photo] = useState(Cookies.get("kid_photo"));
+  // const [kid_name, setKid_name] = useState(Cookies.get("kid_name"));
+  // const [kid_photo, setKid_photo] = useState(Cookies.get("kid_photo"));
+
+
+
+  
+  // setState({ name: "Olympe", photo: "" })
+
+
 
   const jwt = useAtomValue(authorizationAtom);
   // const id = useParams().id;
@@ -35,21 +53,28 @@ const Profil = () => {
 
   function conditionalPutAPIData() {
     if (
-      kid_name !== Cookies.get("kid_name") ||
-      kid_photo !== Cookies.get("kid_photo")
+      kid_name !== state.name ||
+      kid_photo !== state.photo
     ) {
+      console.log(state)
       putAPIData();
+      console.log(state)
+  
     }
   }
 
   function putAPIData() {
-    console.log(kid_name + "   " + kid_photo);
+    // console.log(kid_name + "   " + kid_photo);
     const token = Cookies.get("token");
-    Cookies.set("kid_name", kid_name);
-    Cookies.set("kid_photo", kid_photo);
+    console.log(Cookies.get("token"))
+    // setState({ name: kid_name, photo: kid_photo })
+    console.log(state)
+    // Cookies.set("kid_photo", kid_photo);
     const data = {
-      child_name: kid_name,
-      child_image: kid_photo,
+      // child_name: kid_name,
+      // child_image: kid_photo,
+      child_name: state.name,
+      child_image: state.photo,
     };
     const config = {
       headers: {
@@ -60,7 +85,8 @@ const Profil = () => {
       .patch(`${API_URL}member-update`, data, config)
       .then((response) => {
         navigate("/");
-        console.log("user updated" + response);
+        console.log(response);
+        console.log(state)
       });
   }
 
@@ -78,18 +104,23 @@ const Profil = () => {
           <label>Prénom de l'enfant &nbsp;</label>
           <input
             type="text"
-            placeholder={kid_name}
+            placeholder={state.name}
             id="kid_name"
-            onChange={(e) => setKid_name(e.target.value)}
+            // onChange={(e) => setKid_name(e.target.value)}
+            // setState({ ...state, [name]: value })
+            // onChange={(e) => setState({ name: e.target.value, photo: "" })}
+            // setState({ name: "Olympe", photo: "" })
+            onChange={(e) => setState({ ...state, name: (e.target.value) })}
           ></input>
         </div>
         <div className="mb-3 row">
           <label>Lien de la photo </label>
           <input
             type="text"
-            placeholder={kid_photo}
+            placeholder={state.photo}
             id="kid_photo"
-            onChange={(e) => setKid_photo(e.target.value)}
+            // onChange={(e) => setKid_photo(e.target.value)}
+            onChange={(e) => setState({ ...state, photo: (e.target.value) })}
           ></input>
         </div>
         <button
@@ -101,7 +132,7 @@ const Profil = () => {
         </button>
       </div>
       <div>
-        <img src={kid_photo} className="rounded-5 m-3" alt="enfant"></img>
+        <img src={state.photo} className="rounded-5 m-3" alt="enfant"></img>
       </div>
     </div>
     // </form>
@@ -109,6 +140,8 @@ const Profil = () => {
 };
 
 export default Profil;
+
+
 
 // const handleSave = async () => {
 //   const data = {

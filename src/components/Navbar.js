@@ -21,20 +21,20 @@ function Navbar() {
 
   const logout = () => {
 
-    setState({name:"Olympe", photo:""})
-
+    // setState({name:"Olympe", photo:""})
     Cookies.remove("id");
     Cookies.remove("email");
     Cookies.remove("kid_name");
     Cookies.remove("kid_photo");
+    // console.log(state)
 
-    
-Cookies.set("kid_name", "Elsa")
-    let avatar = require("../avatar.png");
-    let kid_photo = Cookies.get("kid_photo");
-    if (kid_photo !== undefined) {
-      avatar = kid_photo;
-    } else { Cookies.set("kid_photo", avatar) }
+    setState({name: "Athena",photo: require("../avatar.png")});
+// Cookies.set("kid_name", "Elsa")
+    // let avatar = require("../avatar.png");
+    // let kid_photo = Cookies.get("kid_photo");
+    // if (kid_photo !== undefined) {
+    //   avatar = kid_photo;
+    // } else { Cookies.set("kid_photo", avatar) }
 
     
     // console.log(Cookies.get());

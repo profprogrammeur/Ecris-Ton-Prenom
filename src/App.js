@@ -15,22 +15,24 @@ function App() {
 
 
   const [state, setState] = useAtom(childAtom);
+  console.log(state)
+  console.log(childAtom)
 
 
+  // let avatar = require("./avatar.png");
 
-  let avatar = require("./avatar.png");
-  let kid_photo = Cookies.get("kid_photo");
-  if (kid_photo !== undefined) {
-    avatar = kid_photo;
-  } //else { Cookies.set("kid_photo", avatar) }
+  // let kid_photo = Cookies.get("kid_photo");
+  // if (kid_photo !== undefined) {
+  //   avatar = kid_photo;
+  // } //else { Cookies.set("kid_photo", avatar) }
 
-  let kid_name_default = "Lola";
-  let kid_name = Cookies.get("kid_name");
-  console.log("kid_name : " + kid_name);
-  if (kid_name === undefined) {
-    kid_name = kid_name_default;
-    Cookies.set("kid_name", kid_name_default);
-  }
+  // let kid_name_default = "Lola";
+  // let kid_name = Cookies.get("kid_name");
+  // console.log("kid_name : " + kid_name);
+  // if (kid_name === undefined) {
+  //   kid_name = kid_name_default;
+  //   Cookies.set("kid_name", kid_name_default);
+  // }
 
   return (
     <div className="App container-fluid">
@@ -44,8 +46,7 @@ function App() {
         />
         <div>
           {/* <Child title={Cookies.get("kid_name").toUpperCase()} image_url={avatar} /> */}
-          <Child title={state.name} image_url={avatar} />
-
+          <Child title={state.name} image_url={state.photo} />
         </div>
         
       </div>
