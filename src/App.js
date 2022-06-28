@@ -4,7 +4,20 @@ import Hero from "./components/Hero";
 import Cookies from "js-cookie";
 import background from "./kid_transparent.png";
 
+import { useAtom } from "jotai";
+
+import { childAtom } from "./stores/store";
+
+
+
+
 function App() {
+
+
+  const [state, setState] = useAtom(childAtom);
+
+
+
   let avatar = require("./avatar.png");
   let kid_photo = Cookies.get("kid_photo");
   if (kid_photo !== undefined) {
@@ -30,7 +43,9 @@ function App() {
           style={{ height: "500px" }}
         />
         <div>
-          <Child title={Cookies.get("kid_name").toUpperCase()} image_url={avatar} />
+          {/* <Child title={Cookies.get("kid_name").toUpperCase()} image_url={avatar} /> */}
+          <Child title={state.name} image_url={avatar} />
+
         </div>
         
       </div>
