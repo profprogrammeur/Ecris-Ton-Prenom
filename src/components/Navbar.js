@@ -1,27 +1,42 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { useAtom } from "jotai";
+import { atom,useAtom } from "jotai";
 import { userAtom, authorizationAtom } from "../stores/auth";
 import { API_URL } from "../stores/api_url";
 import Cookies from "js-cookie";
 
+
+import { childAtom } from "../stores/store";
+
+
+
 function Navbar() {
+
+  const [state, setState] = useAtom(childAtom);
+
+
   const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
   //const [id, setId] = useAtom(userAtom);
   const navigate = useNavigate();
 
   const logout = () => {
+
+    // setState({name:"Olympe", photo:""})
     Cookies.remove("id");
     Cookies.remove("email");
-    Cookies.remove("kid_name");
-    Cookies.remove("kid_photo");
-    //Cookies.set("kid_name", "Elsa")
-    // let avatar = require("./avatar.png");
+    Cookies.remove("name");
+    Cookies.remove("photo");
+    // console.log(state)
+
+    setState({name: "Athena",photo: require("../avatar.png")});
+// Cookies.set("kid_name", "Elsa")
+    // let avatar = require("../avatar.png");
     // let kid_photo = Cookies.get("kid_photo");
     // if (kid_photo !== undefined) {
     //   avatar = kid_photo;
     // } else { Cookies.set("kid_photo", avatar) }
 
+    
     // console.log(Cookies.get());
 
     fetch(API_URL + "users/sign_out", {
