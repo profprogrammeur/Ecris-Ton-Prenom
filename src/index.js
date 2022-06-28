@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {HashRouter, Routes, Route } from "react-router-dom";
 import "./index.css";
 import App from "./App";
 import GamePage from "./components/game/GamePage";
@@ -17,13 +17,10 @@ import { Provider} from 'jotai'
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider>
-  <BrowserRouter>
-  
-
-  
+  <HashRouter>
     <Navbar />
     <Routes>
-      <Route path="/Ecris-Ton-Prenom/" element={<App />} />
+      <Route path="/" element={<App />} />
       <Route path="/game" element={<GamePage />} />
       <Route path="/game/win" element={<Win />} />
       <Route path="/contact" element={<Contact />} />
@@ -33,7 +30,6 @@ root.render(
       <Route path="/*" element={<NotFound />} />
     </Routes>
     <Footer />
-    
-  </BrowserRouter>
+  </HashRouter>
   </Provider>
 );
