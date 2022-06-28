@@ -4,6 +4,8 @@ import { useState } from "react";
 import Cookies from 'js-cookie';
 import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
+import { Trophy } from 'react-bootstrap-icons';
+import { TrophyFill } from 'react-bootstrap-icons';
 import { Link, useNavigate,Redirect } from "react-router-dom";
 
   const GamePage = () => {
@@ -12,9 +14,13 @@ import { Link, useNavigate,Redirect } from "react-router-dom";
     let name = Cookies.get('kid_name').toLocaleUpperCase()
     let selfi = Cookies.get('kid_photo') 
     let stars = []
+    let trophies = []
 
     for (let i = 0; i < 5; i++) {
-      stars.push(<Star className="m-2 " size={40} style={{ color: "gold"}} />)
+      stars.push(<Star className="m-2 " key={`star${i}`} size={40} style={{ color: "gold"}} />)
+    }
+    for (let i = 0; i < 9; i++) {
+      trophies.push(<Trophy className="m-2 " key={`trophy${i}`} size={30} style={{ color: "coral" }} />)
     }
 
     const [score, setScore] = React.useState(0)
@@ -84,15 +90,20 @@ import { Link, useNavigate,Redirect } from "react-router-dom";
      stars.pop()
       stars.unshift(<StarFill className="m-2 " size={40} style={{ color: "darkorange" }} />)
     }
+    for (let i = 0; i < level; i++) {
+      trophies.pop()
+      trophies.unshift(<TrophyFill className="m-2 " size={40} style={{ color: "coral" }} />)
+    }
 
   return(
     <div className="container d-flex flex-column  align-items-center bg-light rounded" cursor="not-allowed">   
       {/* <h5 className="m-3" >score : {score}</h5> */}
-      <p style={{ fontSize: 15 }} className="mt-2">niveau : {level}</p>
-      
+      <div className="flex m-2">
+      {trophies}
+      </div>
       <img src={selfi} style={{ marginLeft: 0, marginBottom: 6, width: 300, borderRadius: 50 }}/>
       {/* <p style={{fontSize: 15}}>prénom à trouver :</p> */}
-      <div className="flex bg-light  m-2">
+      <div className="flex m-1">
         {stars}
       </div>
       <p >{name}</p>
