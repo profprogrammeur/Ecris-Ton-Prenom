@@ -25,11 +25,14 @@ function App() {
       <div className="d-flex justify-content-center">
         <img
           src={background}
-          className="img-fluid mt-2"
+          className="img-fluid rounded-5"
           alt="pic"
-          style={{ height: "450px" }}
+          style={{ height: "500px" }}
         />
-        <Child title={Cookies.get("kid_name")} image_url={avatar} />
+        <div>
+          <Child title={Cookies.get("kid_name").toUpperCase()} image_url={avatar} />
+        </div>
+        
       </div>
     </div>
   );
