@@ -57,7 +57,6 @@ const Register = () => {
           .then((response) => {
             setUserapp(response.user.id);
             Cookies.set("id", response.user.id);
-            Cookies.set("id", response.user.id);
             Cookies.set("email", response.user.email);
             navigate("/");
           });

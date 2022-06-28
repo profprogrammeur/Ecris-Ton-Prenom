@@ -12,10 +12,15 @@ import Footer from "./components/Footer";
 import Login from "./components/pages/Login";
 import Profil from "./components/pages/Profil";
 import NotFound from "./components/pages/NotFound";
+import { Provider} from 'jotai'
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
+  <Provider>
   <BrowserRouter>
+  
+
+  
     <Navbar />
     <Routes>
       <Route path="/Ecris-Ton-Prenom/" element={<App />} />
@@ -28,5 +33,7 @@ root.render(
       <Route path="/*" element={<NotFound />} />
     </Routes>
     <Footer />
+    
   </BrowserRouter>
+  </Provider>
 );
