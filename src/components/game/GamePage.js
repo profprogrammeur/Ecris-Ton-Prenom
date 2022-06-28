@@ -1,18 +1,26 @@
 import React from "react";
 import { useParams } from 'react-router';
 import { useState } from "react";
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 import { Star } from 'react-bootstrap-icons';
 import { StarFill } from 'react-bootstrap-icons';
 import { Trophy } from 'react-bootstrap-icons';
 import { TrophyFill } from 'react-bootstrap-icons';
 import { Link, useNavigate,Redirect } from "react-router-dom";
+import { childAtom } from "../../stores/store";
+import Cookies from 'js-cookie';
+import { useAtom } from "jotai";
+
+
+  
 
   const GamePage = () => {
+    const [state, setState] = useAtom(childAtom);
+
     let level = parseInt(Cookies.get("level"))
     const navigate = useNavigate()
-    let name = Cookies.get('kid_name').toLocaleUpperCase()
-    let selfi = Cookies.get('kid_photo') 
+    let name = state.name.toLocaleUpperCase()
+    let selfi = state.photo
     let stars = []
     let trophies = []
 

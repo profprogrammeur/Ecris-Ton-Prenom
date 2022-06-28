@@ -69,7 +69,8 @@ const Profil = () => {
     console.log(Cookies.get("token"))
     // setState({ name: kid_name, photo: kid_photo })
     console.log(state)
-    // Cookies.set("kid_photo", kid_photo);
+    Cookies.set("photo", state.photo);
+    Cookies.set("name", state.name);
     const data = {
       // child_name: kid_name,
       // child_image: kid_photo,

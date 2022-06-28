@@ -56,13 +56,21 @@ const Login = () => {
         Cookies.set("email", "");
         // Cookies.set("kid_name", "");
         // Cookies.set("kid_photo", "");
+
+        // Cookies.set("name", state.name)
+        // console.log(state.name)
+        // console.log(Cookies.get("name"))
+
         Cookies.set("id", response.user.id);
         Cookies.set("email", response.user.email);
         // Cookies.set("kid_name", response.user.child_name);
         // Cookies.set("kid_photo", response.user.child_image);
         setState({ name: response.user.child_name, photo: response.user.child_image});
-        
-        console.log("cookie : " + Cookies.get("kid_name"));
+        Cookies.set("name", response.user.child_name)
+        Cookies.set("photo", response.user.child_image)
+        console.log(state.name)
+        console.log(Cookies.get("name"))
+        // console.log("cookie : " + Cookies.get("kid_name"));
 
         navigate("/");
       });

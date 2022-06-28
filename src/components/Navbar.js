@@ -24,8 +24,8 @@ function Navbar() {
     // setState({name:"Olympe", photo:""})
     Cookies.remove("id");
     Cookies.remove("email");
-    Cookies.remove("kid_name");
-    Cookies.remove("kid_photo");
+    Cookies.remove("name");
+    Cookies.remove("photo");
     // console.log(state)
 
     setState({name: "Athena",photo: require("../avatar.png")});
