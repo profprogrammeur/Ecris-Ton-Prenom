@@ -24,13 +24,13 @@ root.render(
     <Navbar />
     <Routes>
       <Route path="/Ecris-Ton-Prenom/" element={<App />} />
-        <Route path="/Ecris-Ton-Prenom/game" element={<GamePage />} />
-        <Route path="/Ecris-Ton-Prenom/game/win" element={<Win />} />
-        <Route path="/Ecris-Ton-Prenom/contact" element={<Contact />} />
-        <Route path="/Ecris-Ton-Prenom/register" element={<Register />} />
-        <Route path="/Ecris-Ton-Prenom/login" element={<Login />} />
-        <Route path="/Ecris-Ton-Prenom/profil" element={<Profil />} />
-        <Route path="/Ecris-Ton-Prenom/*" element={<NotFound />} />
+      <Route path="/game" element={<GamePage />} />
+      <Route path="/game/win" element={<Win />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/profil" element={<Profil />} />
+      <Route path="/*" element={<NotFound />} />
     </Routes>
     <Footer />
     
