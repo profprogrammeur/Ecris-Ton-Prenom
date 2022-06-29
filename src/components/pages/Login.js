@@ -8,8 +8,6 @@ import kids_cube from "../../ressources/kids_cube.jpg";
 import Cookies from "js-cookie";
 import { childAtom } from "../../stores/store";
 
-
-
 const Login = () => {
   const [state, setState] = useAtom(childAtom);
   const navigate = useNavigate();
@@ -43,9 +41,7 @@ const Login = () => {
           "token",
           [...response.headers.get("authorization")].join("")
         );
-        console.log(
-          "responseImmoAllAPI :" + response.headers.get("authorization")
-        );
+
         return response.json();
       })
 
@@ -65,11 +61,14 @@ const Login = () => {
         Cookies.set("email", response.user.email);
         // Cookies.set("kid_name", response.user.child_name);
         // Cookies.set("kid_photo", response.user.child_image);
-        setState({ name: response.user.child_name, photo: response.user.child_image});
-        Cookies.set("name", response.user.child_name)
-        Cookies.set("photo", response.user.child_image)
-        console.log(state.name)
-        console.log(Cookies.get("name"))
+        setState({
+          name: response.user.child_name,
+          photo: response.user.child_image,
+        });
+        Cookies.set("name", response.user.child_name);
+        Cookies.set("photo", response.user.child_image);
+        console.log(state.name);
+        console.log(Cookies.get("name"));
         // console.log("cookie : " + Cookies.get("kid_name"));
 
         navigate("/");

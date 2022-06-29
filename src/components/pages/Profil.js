@@ -8,30 +8,22 @@ import Style from "./style.module.css";
 import Cookies from "js-cookie";
 import axios from "axios";
 
-
 import { childAtom } from "../../stores/store";
-
-
 
 //const email = Cookies.get("email");
 //const id = Cookies.get("id");
 const Profil = () => {
-  const kid_name=""
-  const kid_photo=""
+  const kid_name = "";
+  const kid_photo = "";
 
   const [state, setState] = useAtom(childAtom);
-  console.log(state)
+  console.log(state);
 
   const navigate = useNavigate();
   // const [kid_name, setKid_name] = useState(Cookies.get("kid_name"));
   // const [kid_photo, setKid_photo] = useState(Cookies.get("kid_photo"));
 
-
-
-  
   // setState({ name: "Olympe", photo: "" })
-
-
 
   const jwt = useAtomValue(authorizationAtom);
   // const id = useParams().id;
@@ -44,6 +36,39 @@ const Profil = () => {
   // const [passwordapp, setPasswordapp] = useState();
   //  const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
 
+  const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
+
+  function deleteAPIData() {
+    const token = Cookies.get("token");
+    console.log(state);
+
+    const config = {
+      headers: {
+        Authorization: token,
+      },
+    };
+    return axios.delete(`${API_URL}member-delete`, config).then((r) => {
+      state.photo = require("../../avatar.png");
+      state.name = "Athena";
+      Cookies.remove("email");
+      Cookies.remove("name");
+      Cookies.remove("photo");
+
+      // fetch(API_URL + "users/sign_out", {
+      //   method: "delete",
+      //   headers: {
+      //     Authorization: authorizationapp,
+      //     "Content-Type": "application/json",
+      //   },
+      // })
+      setAuthorizationapp("");
+      //Cookies.set("id", "");
+      //Cookies.set("token", "");
+
+      navigate("/");
+    });
+  }
+
   useEffect(() => {
     console.log("jwt : " + jwt);
     if (jwt === "") {
@@ -52,23 +77,19 @@ const Profil = () => {
   }, []);
 
   function conditionalPutAPIData() {
-    if (
-      kid_name !== state.name ||
-      kid_photo !== state.photo
-    ) {
-      console.log(state)
+    if (kid_name !== state.name || kid_photo !== state.photo) {
+      console.log(state);
       putAPIData();
-      console.log(state)
-  
+      console.log(state);
     }
   }
 
   function putAPIData() {
     // console.log(kid_name + "   " + kid_photo);
     const token = Cookies.get("token");
-    console.log(Cookies.get("token"))
+    console.log(Cookies.get("token"));
     // setState({ name: kid_name, photo: kid_photo })
-    console.log(state)
+    console.log(state);
     Cookies.set("photo", state.photo);
     Cookies.set("name", state.name);
     const data = {
@@ -87,7 +108,7 @@ const Profil = () => {
       .then((response) => {
         navigate("/");
         console.log(response);
-        console.log(state)
+        console.log(state);
       });
   }
 
@@ -111,7 +132,7 @@ const Profil = () => {
             // setState({ ...state, [name]: value })
             // onChange={(e) => setState({ name: e.target.value, photo: "" })}
             // setState({ name: "Olympe", photo: "" })
-            onChange={(e) => setState({ ...state, name: (e.target.value) })}
+            onChange={(e) => setState({ ...state, name: e.target.value })}
           ></input>
         </div>
         <div className="mb-3 row">
@@ -121,7 +142,7 @@ const Profil = () => {
             placeholder={state.photo}
             id="kid_photo"
             // onChange={(e) => setKid_photo(e.target.value)}
-            onChange={(e) => setState({ ...state, photo: (e.target.value) })}
+            onChange={(e) => setState({ ...state, photo: e.target.value })}
           ></input>
         </div>
         <button
@@ -130,6 +151,21 @@ const Profil = () => {
           onClick={() => conditionalPutAPIData()}
         >
           Envoyer
+        </button>
+        <button
+          className="btn btn-danger mb-2"
+          type="submit"
+          onClick={() => {
+            if (
+              window.confirm(
+                "Êtes-vous sur de vouloir supprimer votre compte ?"
+              )
+            ) {
+              deleteAPIData();
+            }
+          }}
+        >
+          Supprimer le compte
         </button>
       </div>
       <div>
@@ -141,8 +177,6 @@ const Profil = () => {
 };
 
 export default Profil;
-
-
 
 // const handleSave = async () => {
 //   const data = {
