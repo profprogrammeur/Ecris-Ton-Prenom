@@ -1,6 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Provider } from "jotai";
+
 import "./index.css";
 import App from "./App";
 import GamePage from "./components/game/GamePage";
@@ -12,7 +14,7 @@ import Footer from "./components/molecules/Footer";
 import Login from "./components/pages/Login";
 import Profil from "./components/pages/Profil";
 import NotFound from "./components/pages/NotFound";
-import { Provider } from "jotai";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

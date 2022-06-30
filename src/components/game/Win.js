@@ -7,7 +7,6 @@ function Win(props) {
   const image_url = "./game_assets/catspics/cat";
   let image = require(`${image_url}${level.toString()}.jpg`);
 
-  console.log(level);
   return (
     <div className="card h-100 mx-auto" style={{ width: "18rem" }}>
       <img src={image} className="card-img-top img-fluid" alt="pic" />

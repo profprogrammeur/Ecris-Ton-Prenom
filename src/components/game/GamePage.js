@@ -32,18 +32,13 @@ import { useAtom } from "jotai";
     }
 
     const [score, setScore] = React.useState(0)
-    // const [stars, setStars] = React.useState([])
-    console.log("init_level = " + level)
     const checkName = (i) => {
-      console.log("check")
       if (i === 4) {
         if (score > 3) {
           setScore(prevScore => prevScore + 1); 
           if (level < 9) { level += 1 } else (level = 1);   
           setTimeout(() => { 
             Cookies.set("level",level)
-            console.log("Bravo")
-            console.log("level = "+ level)
             setScore(0)
             navigate("/game/win")
           }

@@ -1,32 +1,12 @@
-import "./App.css";
-import Child from "./components/molecules/Child";
-import Hero from "./components/molecules/Hero";
-import Cookies from "js-cookie";
-import background from "./assets/kid_transparent.png";
-
 import { useAtom } from "jotai";
 
+import Child from "./components/molecules/Child";
+import Hero from "./components/molecules/Hero";
+import background from "./assets/kid_transparent.png";
 import { childAtom } from "./stores/store";
 
 function App() {
   const [state, setState] = useAtom(childAtom);
-  console.log(state);
-  console.log(childAtom);
-
-  // let avatar = require("./avatar.png");
-
-  // let kid_photo = Cookies.get("kid_photo");
-  // if (kid_photo !== undefined) {
-  //   avatar = kid_photo;
-  // } //else { Cookies.set("kid_photo", avatar) }
-
-  // let kid_name_default = "Lola";
-  // let kid_name = Cookies.get("kid_name");
-  // console.log("kid_name : " + kid_name);
-  // if (kid_name === undefined) {
-  //   kid_name = kid_name_default;
-  //   Cookies.set("kid_name", kid_name_default);
-  // }
 
   return (
     <div className="App container-fluid">
@@ -34,12 +14,10 @@ function App() {
       <div className="d-flex justify-content-center">
         <img
           src={background}
-          className="img-fluid rounded-5"
+          className="rounded-5 home-pic "
           alt="pic"
-          style={{ height: "500px" }}
         />
         <div>
-          {/* <Child title={Cookies.get("kid_name").toUpperCase()} image_url={avatar} /> */}
           <Child title={state.name} image_url={state.photo} />
         </div>
       </div>
