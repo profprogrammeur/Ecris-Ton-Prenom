@@ -1,23 +1,17 @@
 import "./App.css";
-import Child from "./components/Child";
-import Hero from "./components/Hero";
+import Child from "./components/atoms/Child";
+import Hero from "./components/atoms/Hero";
 import Cookies from "js-cookie";
-import background from "./kid_transparent.png";
+import background from "./ressources/kid_transparent.png";
 
 import { useAtom } from "jotai";
 
 import { childAtom } from "./stores/store";
 
-
-
-
 function App() {
-
-
   const [state, setState] = useAtom(childAtom);
-  console.log(state)
-  console.log(childAtom)
-
+  console.log(state);
+  console.log(childAtom);
 
   // let avatar = require("./avatar.png");
 
@@ -48,7 +42,6 @@ function App() {
           {/* <Child title={Cookies.get("kid_name").toUpperCase()} image_url={avatar} /> */}
           <Child title={state.name} image_url={state.photo} />
         </div>
-        
       </div>
     </div>
   );

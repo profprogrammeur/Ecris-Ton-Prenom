@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAtom } from "jotai";
-import { userAtom, authorizationAtom } from "../../stores/auth";
+import { authorizationAtom } from "../../stores/auth";
 import { API_URL } from "../../stores/api_url";
 import Style from "./style.module.css";
 import kids_cube from "../../ressources/kids_cube.jpg";
