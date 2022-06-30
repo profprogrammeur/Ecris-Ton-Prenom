@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { userAtom, authorizationAtom } from "../../stores/auth";
 import { API_URL } from "../../stores/api_url";
 import Style from "./style.module.css";
-import kids_circle from "../../ressources/kids_circle.jpg";
+import kids_circle from "../../assets/kids_circle.jpg";
 import Cookies from "js-cookie";
 
 const Register = () => {

@@ -6,35 +6,30 @@ import Cookies from "js-cookie";
 // // const avatar = require("../avatar.png");
 
 // function conditionalPutAPIData() {
-  console.log (Cookies.get("name"))
-  if (
-    Cookies.get("name") == undefined){
-    Cookies.set("name", "Athena")
-    Cookies.set("photo", require("../avatar.png"))
-    }
+console.log(Cookies.get("name"));
+if (Cookies.get("name") === undefined) {
+  Cookies.set("name", "Athena");
+  Cookies.set("photo", require("../assets/avatar-1.png"));
+}
 
+//   kid_name !== state.name ||
+//   kid_photo !== state.photo
+// ) {
+//   console.log(state)
+//   putAPIData();
+//   console.log(state)
 
-  //   kid_name !== state.name ||
-  //   kid_photo !== state.photo
-  // ) {
-  //   console.log(state)
-  //   putAPIData();
-  //   console.log(state)
-
-  // }
+// }
 // }
 
 export const childAtom = atom({
   name: Cookies.get("name"),
   // photo: "https://unsplash.com/photos/WxJGyoqKVdA/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MXx8YXRoZW5hfGVufDB8fHx8MTY1NjQwNTgzMQ&force=true&w=640",
-  photo: Cookies.get("photo")
+  photo: Cookies.get("photo"),
 });
-
-
 
 // export const childAtom = atom({
 //   name: "Athena",
 //   // photo: "https://unsplash.com/photos/WxJGyoqKVdA/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MXx8YXRoZW5hfGVufDB8fHx8MTY1NjQwNTgzMQ&force=true&w=640",
 //   photo: require("../avatar.png")
 // });
-

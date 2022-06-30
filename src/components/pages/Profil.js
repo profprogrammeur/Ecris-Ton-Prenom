@@ -48,7 +48,7 @@ const Profil = () => {
       },
     };
     return axios.delete(`${API_URL}member-delete`, config).then((r) => {
-      state.photo = require("../../avatar.png");
+      state.photo = require("../../assets/avatar-1.png");
       state.name = "Athena";
       Cookies.remove("email");
       Cookies.remove("name");
