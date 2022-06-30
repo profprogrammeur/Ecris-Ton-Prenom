@@ -1,8 +1,8 @@
 import "./App.css";
-import Child from "./components/atoms/Child";
-import Hero from "./components/atoms/Hero";
+import Child from "./components/molecules/Child";
+import Hero from "./components/molecules/Hero";
 import Cookies from "js-cookie";
-import background from "./ressources/kid_transparent.png";
+import background from "./assets/kid_transparent.png";
 
 import { useAtom } from "jotai";
 

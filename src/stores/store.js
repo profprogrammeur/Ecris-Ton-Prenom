@@ -9,7 +9,7 @@ import Cookies from "js-cookie";
 console.log(Cookies.get("name"));
 if (Cookies.get("name") === undefined) {
   Cookies.set("name", "Athena");
-  Cookies.set("photo", require("../ressources/avatar-1.png"));
+  Cookies.set("photo", require("../assets/avatar-1.png"));
 }
 
 //   kid_name !== state.name ||

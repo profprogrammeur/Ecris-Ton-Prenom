@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { authorizationAtom } from "../../stores/auth";
 import { API_URL } from "../../stores/api_url";
 import Style from "./style.module.css";
-import kids_cube from "../../ressources/kids_cube.jpg";
+import kids_cube from "../../assets/kids_cube.jpg";
 import Cookies from "js-cookie";
 import { childAtom } from "../../stores/store";
 

@@ -26,7 +26,7 @@ function Navbar() {
 
     setState({
       name: "Athena",
-      photo: require("../../ressources/avatar-1.png"),
+      photo: require("../../assets/avatar-1.png"),
     });
     // Cookies.set("kid_name", "Elsa")
     // let avatar = require("../avatar.png");
