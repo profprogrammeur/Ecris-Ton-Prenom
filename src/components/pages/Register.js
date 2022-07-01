@@ -14,8 +14,19 @@ const Register = () => {
   const [passwordapp, setPasswordapp] = useState();
   const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
 
+  const validateEmail = (mail) => {
+
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
+      return (true)
+    }
+   
+    return (false)
+  }
+
+
   function FetchData(e) {
     e.preventDefault();
+    
 
     const data = {
       user: {
@@ -23,6 +34,9 @@ const Register = () => {
         password: passwordapp,
       },
     };
+
+    
+    
 
     fetch(API_URL + "users", {
       method: "post",
@@ -66,7 +80,7 @@ const Register = () => {
   return (
     <div className={Style.mainregister}>
       <h1>S'inscrire</h1>
-      <form onSubmit={FetchData}>
+      <form onSubmit={validateEmail(emailapp) ? FetchData : console.log('mauvaise adresse')}>
         <input
           type="text"
           placeholder="email"

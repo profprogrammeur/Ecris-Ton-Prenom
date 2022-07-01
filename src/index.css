@@ -23,3 +23,32 @@ code {
   margin-right: 15%;
 
 }
+
+
+
+
+.block-2 {
+  /* margin-top: 50px; */
+  padding: 20px;
+
+}
+
+.lit-img {
+  margin-bottom: 20px;
+  height: 60px;
+}
+
+.red {
+  background-color: #FD4D40;
+}
+
+.teal {
+  background-color: #16C3B0;
+
+}
+
+.yellow {
+  background-color: #FDB62F ;
+
+}
+
