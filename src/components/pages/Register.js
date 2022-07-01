@@ -14,16 +14,21 @@ const Register = () => {
   const [passwordapp, setPasswordapp] = useState();
   const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
 
-  // const validateEmail = (mail) => {
-  //   if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) {
-  //     return (true)
-  //   }
-  //   return (false)
-  // }
+  const validateEmail = (e) => {
+    e.preventDefault();
+    console.log("validatingEmail")
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailapp)) {
+      FetchData(e)
+    } else {
+     alert("Veuillez entrer un email valide")
+    }
+    
+  }
 
 
   function FetchData(e) {
     e.preventDefault();
+    console.log("fetchingData")
     
     const data = {
       user: {
@@ -75,7 +80,7 @@ const Register = () => {
   return (
     <div className={Style.mainregister}>
       <h1>S'inscrire</h1>
-      <form onSubmit={FetchData}>
+      <form onSubmit={validateEmail}>
         <input
           type="text"
           placeholder="email"
