@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Ecris-Ton-Prenom/static/css/main.ee090f30.css",
-    "main.js": "/Ecris-Ton-Prenom/static/js/main.24047584.js",
+    "main.js": "/Ecris-Ton-Prenom/static/js/main.9a7759c2.js",
     "static/media/kid_transparent.png": "/Ecris-Ton-Prenom/static/media/kid_transparent.1182411bab0aab137cdb.png",
     "static/media/kids_circle.jpg": "/Ecris-Ton-Prenom/static/media/kids_circle.e2b22558cb8094c244f6.jpg",
     "static/media/kids_cube.jpg": "/Ecris-Ton-Prenom/static/media/kids_cube.38be69de807a4bbc1067.jpg",
@@ -21,10 +21,10 @@
     "static/media/pencil.svg": "/Ecris-Ton-Prenom/static/media/pencil.6e003395a4bb8045def913b04008b718.svg",
     "static/media/dice.svg": "/Ecris-Ton-Prenom/static/media/dice.a15e328dfd76b3248e5fe08494924973.svg",
     "main.ee090f30.css.map": "/Ecris-Ton-Prenom/static/css/main.ee090f30.css.map",
-    "main.24047584.js.map": "/Ecris-Ton-Prenom/static/js/main.24047584.js.map"
+    "main.9a7759c2.js.map": "/Ecris-Ton-Prenom/static/js/main.9a7759c2.js.map"
   },
   "entrypoints": [
     "static/css/main.ee090f30.css",
-    "static/js/main.24047584.js"
+    "static/js/main.9a7759c2.js"
   ]
 }
