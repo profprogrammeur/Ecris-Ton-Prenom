@@ -1,4 +1,5 @@
 import React from "react";
+import contactImage from "../../assets/kids_duplo.jpg";
 
 const Contact = () => {
   return (
@@ -6,7 +7,7 @@ const Contact = () => {
       <h1>CONTACTEZ-NOUS</h1>
       <img
         src={
-          "https://unsplash.com/photos/c4QHIMWe9Vg/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTh8fGdob3N0JTIwc2hpcHxlbnwwfHx8fDE2NTUzODc0ODM&force=true&w=1920"
+          contactImage
         }
         className="img-fluid rounded-5"
         alt="pic"

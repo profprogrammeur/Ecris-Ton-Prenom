@@ -4,7 +4,7 @@ import { useAtom } from "jotai";
 import { userAtom, authorizationAtom } from "../../stores/auth";
 import { API_URL } from "../../stores/api_url";
 import Style from "./style.module.css";
-import kids_circle from "../../ressources/kids_circle.jpg";
+import kids_circle from "../../assets/kids_circle.jpg";
 import Cookies from "js-cookie";
 
 const Register = () => {
@@ -14,15 +14,29 @@ const Register = () => {
   const [passwordapp, setPasswordapp] = useState();
   const [authorizationapp, setAuthorizationapp] = useAtom(authorizationAtom);
 
+  const validateEmail = (e) => {
+    e.preventDefault();
+    console.log("validatingEmail")
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(emailapp)) {
+      FetchData(e)
+    } else {
+     alert("Veuillez entrer un email valide")
+    }
+    
+  }
+
+
   function FetchData(e) {
     e.preventDefault();
-
+    console.log("fetchingData")
+    
     const data = {
       user: {
         email: emailapp,
         password: passwordapp,
       },
     };
+    
 
     fetch(API_URL + "users", {
       method: "post",
@@ -66,7 +80,7 @@ const Register = () => {
   return (
     <div className={Style.mainregister}>
       <h1>S'inscrire</h1>
-      <form onSubmit={FetchData}>
+      <form onSubmit={validateEmail}>
         <input
           type="text"
           placeholder="email"
