@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Provider } from "jotai";
 
+
 import "./index.css";
 import App from "./App";
 import GamePage from "./components/game/GamePage";
@@ -19,6 +20,7 @@ import NotFound from "./components/pages/NotFound";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider>
+
     <BrowserRouter>
       <Navbar />
       <Routes>
